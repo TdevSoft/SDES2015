@@ -62,7 +62,10 @@ def TerminalSize():   #this function definition is taken from http://stackoverfl
      
 
 def plot(x,y):
-     maxX,maxY=TerminalSize()
+     try:
+         maxX,maxY=TerminalSize()
+     else:
+         pass
      y=fitScreen(y,1,maxY)
      x=fitScreen(x,1,maxX)
      plotFunction(x,y)
