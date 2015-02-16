@@ -12,9 +12,7 @@ def fitScreen(y,fitminY,fitmaxY):
      y=[int(i+.5) for i in y]
      return y
      
-def plot (x,y):  #here x and y range from max to min values of them
-     print x
-     print y
+def plotFunction (x,y):  #here x and y range from max to min values of them
      xStartmin=min(x)-1
      for y_i in range(maxY,0,-1):
          indices=[i for i, y_temp in enumerate(y) if y_temp == y_i ]
@@ -63,20 +61,23 @@ def TerminalSize():   #this function definition is taken from http://stackoverfl
 
      
 
-def plotFunction(x,y):
+def plot(x,y):
      maxX,maxY=TerminalSize()
      y=fitScreen(y,1,maxY)
      x=fitScreen(x,1,maxX)
-     plot(x,y)
+     plotFunction(x,y)
 
 
 if __name__ == "__main__":
      import math
-     maxX,maxY=TerminalSize()
+     try:
+        maxX,maxY=TerminalSize()
+     except:
+        pass
      x=range(0,maxX)
      y=[]
      for i in x:
         y.append ( math.sin( (i*math.pi*2)/(maxX-1) ))
-     plotFunction(x,y)
+     plot(x,y)
 
 
