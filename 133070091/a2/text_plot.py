@@ -62,9 +62,19 @@ def TerminalSize():   #this function definition is taken from http://stackoverfl
      
 
 def plot(x,y):
+     if not (len(x)==len(y)):
+         raise IndexError("Unequal Length")
+     for i in x:
+         if not ( type(i)==int or type(i)==long or type(i)==float) :
+            raise TypeError
+     for i in y:
+         if not ( type(i)==int or type(i)==long or type(i)==float) :
+            raise TypeError
+                  
+
      try:
          maxX,maxY=TerminalSize()
-     else:
+     except:
          pass
      y=fitScreen(y,1,maxY)
      x=fitScreen(x,1,maxX)
