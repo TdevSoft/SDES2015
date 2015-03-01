@@ -46,7 +46,6 @@ class TestPlot(unittest.TestCase):
          
       def test_SizeError(self):
         self.assertRaises(text_plot.InvalidSize, text_plot.plot, [1,3,7], [1,2.0,3.0], (3.0,1.0), "output_file.txt")
-        os.remove("output_file.txt")
 
 if __name__ == '__main__':
          unittest.main()
